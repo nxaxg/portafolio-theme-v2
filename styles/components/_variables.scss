@@ -1,0 +1,316 @@
+////////////////////////////////////////
+//////////////////////////////////////// Paths
+////////////////////////////////////////
+$fonts_path: '../fonts';
+$images_path: '../images';
+
+////////////////////////////////////////
+//////////////////////////////////////// Base
+////////////////////////////////////////
+
+$base_sans_font_family: "Roboto", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$base_serif_font_family: 'Merriweather', 'Book Antiqua', Palatino, serif !default;
+$base_condensed_font_family: 'Roboto Condensed' !default;
+$base_title_font_family: 'Lato' !default;
+
+$base_content_font: 'Open Sans' !default;
+$base_title_font: 'Montserrat' !default;
+$base_other_font: 'Raleway' !default;
+
+$base_font_size: 16px !default;
+$base_line_height: 1.2em !default;
+$base_padding: 1em !default; // em for it to react to its context
+$base_transition: all 200ms ease !default;
+$base_box_shadow: 0 0 .5em rgba(0,0,0,.1) !default;
+$base_border_radius: .25rem !default;
+
+////////////////////////////////////////
+//////////////////////////////////////// Typography
+////////////////////////////////////////
+
+$text_sizes: (
+	supermini: 	.3125em, 	// 5px
+	mini: 		.5em,		// 8px
+	tinier: 	.625em, 	// 10px
+	tiny: 		.75em,		// 12px
+	small: 		.875em,		// 14px
+	smallmid: 	.9375em,	// 15px
+	regular: 	1em,		// 16px
+	midreg: 	1.0625em,	// 17px
+	medium: 	1.125em,	// 18px
+	big: 		1.25em,		// 20px
+	bigger: 	1.5em,		// 24px
+	tallmin: 	1.5625em,	// 25px
+	tall: 		1.75em,		// 28px
+	tallmid: 	1.875em, 	// 30px
+	taller: 	2em,		// 32px
+	tallest: 	2.25em,		// 36px
+	huge: 		2.5em 		// 40px
+);
+
+//Use
+//map-get($text_sizes, size);
+
+$spacing_min:		.25rem;		//4px
+$spacing_half:		.5rem;		//8px
+$spacing_ten:		.625rem;	//10px
+$spacing_short:		.75rem;		//12px	
+$spacing_regular: 	1rem; 		//16px
+$spacing_midtall: 	1.125rem;   //18px
+$spacing_midreg: 	1.25rem;   	//20px
+$spacing_avg: 	  	1.5rem;   	//24px
+$spacing_medium: 	1.75rem; 	//28px
+$spacing_double: 	2rem;		//32px
+$spacing_fourty: 	2.5rem; 	//40px
+$spacing_tall: 		3rem;		//48px
+$spacing_taller: 	3.5rem;		//56px
+$spacing_big: 		4.625rem; 	//74px
+$spacing_tenth: 	10rem;		//160px
+
+
+
+$headings_line_height: 1.5rem;
+$regular_line_height: $base_line_height;
+
+////////////
+////Weights/
+///////////
+$weight_thin: 100;
+$weight_light: 300;
+$weight_regular: 400;
+$weight_medium: 500;
+$weight_semibold: 600;
+$weight_bold: 700;
+$weight_black: 900;
+
+//Project colors
+////////////////
+$color_gold:  #d6ac48 !default;
+
+
+////////////////////////////////////////
+//////////////////////////////////////// Colors
+////////////////////////////////////////
+
+$color_black:  		  		black !default;
+$color_grey_darkest:   		#111 !default;
+$color_grey_darker:   		#333 !default;
+$color_grey_dark:	  		#666 !default;
+$color_grey_regular:  		#999 !default;
+$color_grey_light:	  		#ccc !default;
+$color_grey_lighter:  		#ddd !default;
+$color_grey_lightest: 		#eee !default;
+$color_white:		  		white !default;
+
+$color_main_darker: 		#004085 !default;
+$color_main_dark: 			#0b5eb8 !default;
+$color_main_regular: 		#2685eb !default;
+$color_main_light: 			#5cabff !default;
+$color_main_lighter: 		#8fc5ff !default;
+
+$color_secondary_darker: 	#804000 !default;
+$color_secondary_dark: 		#b35e09 !default;
+$color_secondary_regular: 	#e68422 !default;
+$color_secondary_light: 	#ffac59 !default;
+$color_secondary_lighter: 	#ffc68c !default;
+
+$color_backup_dark: 		#758c00 !default;
+$color_backup_regular: 		#a3bf13 !default;
+$color_backup_light: 		#bfd941 !default;
+
+$color_success_dark: 		#089950 !default;
+$color_success_regular: 	#1fcc75 !default;
+$color_success_light: 		#50e69b !default;
+
+$color_info_dark: 			#078c88 !default;
+$color_info_regular: 		#1dbfba !default;
+$color_info_light: 			#4cd9d4 !default;
+
+$color_warning_dark: 		#bf9900 !default;
+$color_warning_regular: 	#d9b00b !default;
+$color_warning_light: 		#f2c924 !default;
+
+$color_danger_dark: 		#992008 !default;
+$color_danger_regular: 		#cc3c1f !default;
+$color_danger_light: 		#e66950 !default;
+
+//////////////////////
+////default colors////
+/////////////////////
+
+
+$colors_map : (
+	grey: (
+		darkest:  	$color_grey_darkest, 
+		darker:   	$color_grey_darker, 
+		dark: 	  	$color_grey_dark, 
+		regular:  	$color_grey_regular, 
+		light:    	$color_grey_light, 
+		lighter:  	$color_grey_lighter, 
+		lightest: 	$color_grey_lightest
+	),
+	main: (
+		darker:   	$color_main_darker, 
+		dark: 	  	$color_main_dark, 
+		regular:  	$color_main_regular, 
+		light: 		$color_main_light, 
+		lighter: 	$color_main_lighter
+	),
+	secondary: (
+		darker: 	$color_secondary_darker, 
+		dark: 		$color_secondary_dark, 
+		regular: 	$color_secondary_regular, 
+		light: 		$color_secondary_light, 
+		lighter: 	$color_secondary_lighter
+	),
+	backup: (
+		dark: 		$color_backup_dark, 
+		regular: 	$color_backup_regular, 
+		light: 		$color_backup_light
+	),
+	success: (
+		dark: 		$color_success_dark, 
+		regular: 	$color_success_regular, 
+		light: 		$color_success_light
+	),
+	info: (
+		dark: 		$color_info_dark, 
+		regular: 	$color_info_regular, 
+		light: 		$color_info_light
+	),
+	warning: (
+		dark: 		$color_warning_dark, 
+		regular: 	$color_warning_regular, 
+		light: 		$color_warning_light
+	),
+	danger: (
+		dark: 		$color_danger_dark, 
+		regular: 	$color_danger_regular, 
+		light: 		$color_danger_light
+	)
+);
+
+// social networks colors
+$color_facebook: 	#3b5998;
+$color_twitter: 	#55acee;
+$color_googleplus: 	#dd4b39;
+$color_linkedin: 	#0077b5;
+$color_youtube: 	#e52d27;
+$color_instagram: 	#405de6;
+$color_shortlink:   $color_secondary_regular;
+
+// especial
+$instagram_gradient: linear-gradient( #400080, transparent), linear-gradient(200deg, #d047d1, #ff0000, #ffff00);
+
+$social_colors_map: (
+	facebook: $color_facebook,
+	twitter: $color_twitter,
+	googleplus: $color_googleplus,
+	linkedin: $color_linkedin,
+	youtube: $color_youtube,
+	instagram: $color_instagram,
+	shortlink: $color_shortlink
+);
+
+
+////////////////////////////////////////
+//////////////////////////////////////// Breakpoints & sizes
+////////////////////////////////////////
+
+$extra_small: 	20em !default;  // ~320px
+$small: 		40em !default;  // ~640px
+$tablet: 		48em !default; 	// ~768px
+$medium: 		50em !default;  // ~800px
+$large: 		64em !default;  // ~1024px
+$extra_large: 	80em !default;  // ~1280px
+$huge: 			90em !default;  // ~1440px
+
+$medias_map: (
+	extra-small: $extra_small,
+	small: $small,
+	tablet: $tablet,
+	medium: $medium,
+	large: $large,
+	extra-large: $extra_large,
+	huge: $huge
+);
+
+///////
+@mixin ease-transition($secs){
+	-webkit-transition: ease $secs;
+    -ms-transition: ease $secs;
+	-moz-transition: ease $secs;
+    transition: ease $secs;
+}
+
+@mixin scale-transform($howmuch){
+	-webkit-transform: scale($howmuch);
+    -ms-transform: scale($howmuch);
+	-moz-transform: scale($howmuch);
+    transform: scale($howmuch);
+}
+
+@mixin flex-center{
+	display: flex;
+    justify-content: center;
+	align-items: center;
+}
+
+@mixin overlay-color($color, $alpha, $transition){
+	content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba($color, $alpha);
+    cursor: pointer;
+    @include ease-transition($transition);
+}
+
+@mixin overlay($color, $alpha, $transition){
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba($color, $alpha);
+    cursor: pointer;
+    @include ease-transition($transition);
+}
+
+@mixin grayscale($percentage){
+	-webkit-filter: grayscale($percentage);
+	-ms-filter: grayscale($percentage);
+	-moz-filter: grayscale($percentage);
+	filter: grayscale($percentage);
+}
+
+@mixin zoom($howmuch){
+	-webkit-transfrom: scale($howmuch);
+	-ms-transfrom: scale($howmuch);
+	-moz-transfrom: scale($howmuch);
+	transform: scale($howmuch)
+}
+
+@mixin flex-column{
+	@include flex-center;
+	flex-direction: column;
+}
+
+
+////////////////////////////////////////
+//////////////////////////////////////// UI
+////////////////////////////////////////
+
+$tr_bg: map-get( map-get($colors_map, grey), lightest );
+
+$th_bg: map-get( map-get($colors_map, main), darker );
+$th_color: $color_white;
+$th_font_size: map-get($text_sizes, medium);
+$th_align: left;
+$th_font_weight: normal;
+
+$td_font_size: map-get($text_sizes, small);
+$td_line_height: 1.3;
+$td_color: map-get( map-get($colors_map, grey), dark );
