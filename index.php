@@ -1,5 +1,5 @@
 <?php
-get_header();
+get_header('transparent');
 the_post();
 //ACF home fields
 $titulo_home = get_field('titulo_home');

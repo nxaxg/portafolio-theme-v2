@@ -48,7 +48,6 @@ foreach($secciones as $seccion){
             <div class="container">
                 <h2 class="horizon__title font-centered"><span class="horizon__title--line"><?php echo $proceso['titulo_seccion'] ?></span></h2>
                 <div class="row row--padd">
-                    <!--proceso 1-->
             <?php
                 $procesos_list = $proceso['procesos'];
                 if($procesos_list):

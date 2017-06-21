@@ -95,28 +95,28 @@ a{
         @include media (tablet-down){
             padding: 0;
             margin: 0;
-        } 
-    }
-    &__link{
-        padding: 0 !important;
-        padding-bottom: .5rem !important;
-        margin-right: 2rem;
-        color: rgba($color_white, 0.6);
-        font-size: map-get($text_sizes, small);
-        font-weight: $weight_light !important;
-        border-bottom: 2px solid transparent;
-        @include ease-transition(0.4s);
-        @include media (tablet-down){
-            padding: 1rem !important;
-            margin: 0;
-            border-bottom: 0;
-            border-left: 3px solid transparent;
-            font-size: map-get($text_sizes, regular);
         }
     }
-    &__item{
+    li.menu-item{
+        a{
+            padding: 0 !important;
+            padding-bottom: .5rem !important;
+            margin-right: 2rem;
+            color: rgba($color_white, 0.6);
+            font-size: map-get($text_sizes, small);
+            font-weight: $weight_light !important;
+            border-bottom: 2px solid transparent;
+            @include ease-transition(0.4s);
+            @include media (tablet-down){
+                padding: 1rem !important;
+                margin: 0;
+                border-bottom: 0;
+                border-left: 3px solid transparent;
+                font-size: map-get($text_sizes, regular);
+            }
+        }
         &:hover{
-            .navbar__link{
+            a{
                 color: $color_white !important;
                 @include ease-transition(0.4s);
                 @include media (tablet-up){
@@ -128,7 +128,7 @@ a{
             }
         }
         &--current{
-            .navbar__link{
+            a{
                 color: $color_white !important;
                 @include ease-transition(0.4s);
                 @include media (tablet-up){
@@ -140,7 +140,7 @@ a{
             }
         }
         &:last-child{
-            .navbar__link{
+            a{
                 margin-right: 0;
             }
         }
@@ -160,8 +160,8 @@ a{
             background: transparent;
         }
         .navbar{
-            &__item{
-                .navbar__link{
+            li.menu-item{
+                a{
                     color: rgba($color_white, .8);
                     @include ease-transition(.4s);
                 }
