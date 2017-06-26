@@ -56,24 +56,6 @@ gulp.task('styles:watch', ['styles:all'], () => {
 	gulp.watch("./styles/**/*", ['styles:all']);
 });
 
-//
-//sftp deploy
-gulp.task('styles:all:sftp', ['styles:all'], () => {
-	return gulp.src(cssPath)
-		.pipe(sftp({
-			"host"     : "54.148.0.90",
-			"user"     : "ubuntu",
-            "password" : "Borgono603*",
-			"remotePath" : "/var/www/des/santotomas.dev.ida.cl/wp-content/themes/centros-investigacion/css/"
-		}));
-});
-
-//
-//sftp watch
-gulp.task('styles:all:watch', ['styles:all:sftp'], () => {
-	gulp.watch("./styles/**/*", ['styles:all:sftp']);
-});
-
 
 ////////
 //////// BrowserSync Server

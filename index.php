@@ -13,24 +13,26 @@ $back_url = get_the_post_thumbnail_url($post, 'full');
         </figure>
         <div class="main-home__body overlay__body overlay-home__body font-centered">
             <div class="main-home__overlay">
-            <?php
-                if($logo_home):
-                    echo '<figure class="main-home__logo">';
-                    echo    '<img src="'.$logo_home.'" alt="Logo NAG" class="elastic-img">';
-                    echo '</figure>';
-                endif;
-                if($titulo_home):
-                    echo '<h1 class="main-home__title upper">';
-                    echo    $titulo_home;
-                    echo '</h1>';
-                endif;
-                if($cargo_home):
-                    echo '<h3 class="main-home__title main-home__title--medium">';
-                    echo    $cargo_home;
-                    echo '</h1>';
-                endif;
-                if($rs) echo get_rrss();
-            ?>
+                <div class="col-lg-12">
+                <?php
+                    if($logo_home):
+                        echo '<figure class="main-home__logo">';
+                        echo    '<img src="'.$logo_home.'" alt="Logo NAG" class="elastic-img">';
+                        echo '</figure>';
+                    endif;
+                    if($titulo_home):
+                        echo '<h1 class="main-home__title upper">';
+                        echo    $titulo_home;
+                        echo '</h1>';
+                    endif;
+                    if($cargo_home):
+                        echo '<h3 class="main-home__title main-home__title--medium">';
+                        echo    $cargo_home;
+                        echo '</h1>';
+                    endif;
+                    if($rs) echo get_rrss('white');
+                ?>
+                </div>
             </div>
         </div>
     </main>

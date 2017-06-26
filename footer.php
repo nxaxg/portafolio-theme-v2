@@ -7,7 +7,7 @@
                     </p>
                 </div>
                 <div class="col-lg-6 col-sm-9 col-xs-10 font-centered lefted--tablet">
-                    <?php echo get_rrss(); ?>
+                    <?php echo get_rrss('white'); ?>
                 </div>
                 <div class="col-lg-3 col-sm-3 col-xs-2 font-righted">
                     <ul class="icons-box__list icons-box__list--right">

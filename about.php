@@ -3,6 +3,7 @@
 get_header();
 the_post();
 
+
 //ACF fields
 $secciones = get_field('secciones');
 

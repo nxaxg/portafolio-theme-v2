@@ -5,6 +5,14 @@
     add_image_size( 'square_360x360', 360, 360, true );
     add_image_size( 'avatar_100x100', 100, 100, true );
 
+    /**
+    * Sete el contenido de un email a html
+    * se usa en send_custom_email
+    */
+    function set_html_content_type(){
+        return 'text/html';
+    }
+
     function incrustrar_css() {
         wp_register_style('main_style', get_bloginfo('template_directory').'/css/main.css');
         wp_enqueue_style('main_style');
@@ -87,10 +95,17 @@
         ));
     }
 
-    function get_rrss(){
+    function get_rrss($class){
         $menu_rrss = wp_get_nav_menu_items('rrss');
+
+        if($class == 'black'){
+            $class = 'icons-box__list--black';
+        }else{
+            $class == '';
+        }
+
         if($menu_rrss){
-            $printrs =  '<ul class="icons-box__list">';
+            $printrs =  '<ul class="icons-box__list '.$class.'">';
             foreach($menu_rrss as $item){
                 $printrs .= '<li class="icons-box__item icons-box__item--circled">';
                 $printrs .=     '<a href="'. ensure_url($item->url) .'" title="Ir a '. $item->title .'" target="_blank" class="icons-box__link fa fa-'. strtolower($item->title) .'"></a>';
@@ -99,5 +114,81 @@
             $printrs .= '</ul>';
         }
         return $printrs;
+    }
+
+    function send_custom_email( $email_data, $return = false ){
+
+        $to = $email_data['to'];
+        $subject = $email_data['subject'];
+        $headers = $email_data['headers'];
+        $attachments = isset($email_data['attachments']) && !empty($email_data['attachments']) ? $email_data['attachments'] : null;
+
+        $GLOBALS['email_contents'] = $email_data['email_contents'];
+
+        // se empieza un output buffer para contener el template del email
+        ob_start();
+        get_template_part('partials/email-notification');
+        $message = ob_get_clean();
+        // temina el output buffer
+
+        // solo en caso de que se quiera devolver el string del correo
+        if( !!$return ){ return $message; }
+
+        add_filter( 'wp_mail_content_type', 'set_html_content_type' );
+        wp_mail( $to, $subject, $message, $headers, $attachments );
+        remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
+    }
+
+    function send_form_contact($data){
+        // validacion de email por php
+        if( !filter_var($data['contacto-email'], FILTER_VALIDATE_EMAIL) || $data['st_verify'] != '') {
+            return false;
+        }
+
+        $new_id = wp_insert_post(array(
+            'post_title' => 'Contacto de '. $data['contacto-nombre'],
+            'post_type' => 'formulario_contacto',
+            'post_status' => 'publish'
+        ));
+
+        if( !$new_id || is_wp_error($new_id) ){
+            wp_die('Error al crear formulario');
+        }
+
+        update_field( "field_59500e426fe70", $data['contacto-nombre'], $new_id );
+        update_field( "field_59500e506fe71", $data['contacto-email'], $new_id );
+        update_field( "field_59500e646fe72", $data['contacto-mensaje'], $new_id );
+
+        $detalles = '<p>';
+
+        $detalles .= '<strong>Nombres:</strong> '. $data['contacto-nombre'] .'<br>';
+        $detalles .= '<strong>Email:</strong> '. $data['contacto-email'] .'<br>';
+        $detalles .= '<strong>Mensaje:</strong> '. $data['contacto-mensaje'] .'<br>';
+
+        $detalles .= '</p>';
+
+
+        /// email para el usuario
+        $mensaje = '<p>Hemos recibido su mensaje en NAG</p>';
+        $mensaje .= '<p>Prontamente nos contactaremos con usted.</p>';
+        $mensaje .= '<p>Los detalles de su contacto son:</p>';
+        $mensaje .= $detalles;
+
+        send_custom_email(array(
+	    'type' => 'notificacion',
+            'to' => $data['contacto-nombre'] .' <'. $data['contacto-email'] .'>',
+            'subject' => 'Contacto en NAG - Desarrollador Web',
+            'headers' => array(
+                'From: NAG <nicolas@ida.cl>',
+                'Reply-To: NAG <nicolas@ida.cl>'
+            ),
+            'email_contents' => array(
+                'title' => 'Contacto en NAG',
+                'intro' => 'Estimado/da '. $data['contacto-email'] . ':',
+                'mensaje' => $mensaje
+            )
+        ));
+
+        return true;
     }
 ?>
