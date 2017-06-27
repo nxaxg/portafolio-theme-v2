@@ -12,6 +12,7 @@ a{
     color: $color_gold;
     text-decoration: none;
     @include ease-transition(.5s);
+    font-weight: $weight_bold;
     &:hover{
         color: $color_gold;
         text-decoration: line-through;
@@ -70,10 +71,7 @@ a{
         }
         &__body{
             width: 100%;
-            padding: 5rem 0;
-            @include media (tablet-down){
-                padding: 7rem 0;
-            }
+            padding: 4rem 0;
         }
     }
     &__body{
@@ -211,7 +209,7 @@ a{
 }
 
 .main{
-    margin-top: 5rem;
+    margin-top: 4rem;
     padding-bottom: 2rem;
     &__body{
         padding-top: 3rem;
@@ -224,6 +222,11 @@ a{
     }
     &__content{
         padding: 2rem 1rem;
+        font-weight: lighter;
+        line-height: 1.5rem;
+        @include media (small-down){
+            padding: 1rem;
+        }
         &--bordered{
             border: 2px solid $color_gold;
         }
@@ -235,14 +238,14 @@ a{
         color: $color_black;
         letter-spacing: 5px;
         font-size: map-get($text_sizes, huge);
+        line-height: 3.5rem;
         @include media (tablet-down){
-            line-height: 4rem;
+            font-size: 2rem;
+            line-height: 2.75rem;
             letter-spacing: 2px;
         }
         &--line{
             background: $color_gold;
-            // border-bottom: 2px solid $color_gold;
-            // border-top: 2px solid $color_gold;
             padding: 0 $spacing_min;
         }
         &--reel{
@@ -319,12 +322,19 @@ a{
     &__content{
         font-family: $base_content_font;
         font-weight: $weight_light;
-        padding: .5rem 0 1rem; 
+        padding: .5rem 0 1rem;
+        line-height: 1.5rem;
         p{
             &:last-child{
                 margin-bottom: 1rem;
             }
         } 
+        &--sides{
+            padding: .5rem 1rem 1rem;
+            @include media (small-down){
+                padding: .5rem 0;
+            }
+        }
     }
     &__figure{
         &--cult{
@@ -380,7 +390,7 @@ a{
     &-box{
         width: 60%;
         margin: 0 20%;
-        padding: 3rem 2rem;
+        padding: 2rem;
         overflow: hidden;
         &__item{
             &--circled{
@@ -462,11 +472,16 @@ a{
     &__body{
         @include overlay($color_black, .5, 1s);
         @include flex-column;
+        padding: 2rem;
+        @include media (small-down){
+            padding: 1rem;
+        }
     }
     &__title{
         font-family: $base_title_font;
         font-weight: $weight_bold;
         font-size: map-get($text_sizes, bigger);
+        line-height: 2rem;
         text-transform: uppercase;
         color: $color_white;
         &--line{
@@ -474,7 +489,12 @@ a{
         }
         @include media (tablet-down){
             font-weight: $weight_black;
-            font-size: map-get($text_sizes, tall);
+            font-size: map-get($text_sizes, big);
+            line-height: 1.75rem;
+        }
+        @include media (small-down){
+            font-size: map-get($text_sizes, medium);
+            line-height: 1.5rem;
         }
     }
     .button{
@@ -541,7 +561,7 @@ a{
 }
 
 .tags-box{
-    padding: 2rem;
+    padding: 1rem;
     &__list{
         list-style: none;
         display: flex;
@@ -561,6 +581,7 @@ a{
         color: white;
         padding: .5rem 1rem;
         border: 1px solid $color_gold;
+        font-weight: $weight_light;
         @include flex-center;
         @include ease-transition(.2s);
         &:hover{
@@ -601,6 +622,7 @@ a{
             }
             dd{
                 padding: 0 0 $spacing_min;
+                font-weight: $weight_light;
             }
         }
     }
@@ -609,6 +631,8 @@ a{
         padding: 1rem 2rem;
         width: 100%;
         overflow: hidden;
+        line-height: 1.5rem;
+        font-weight: $weight_light;
         @include media (tablet-down){
             padding: 1rem;
         }
@@ -621,6 +645,10 @@ a{
                 font-size: map-get($text_sizes, tallmid);
                 font-weight: $weight_black;
             }
+        }
+        p{
+            line-height: 1.5rem;
+            font-weight: $weight_light;
         }
         a.responsive_lightbox{
             width: 50% !important;
@@ -740,6 +768,6 @@ a{
 .wrap--container{
     background-color: rgba($color_black,0.6);
     z-index: 1;
-    padding-top: 1rem;
+    padding: 1rem 0;
     color: $color_white;
 }
